@@ -158,3 +158,89 @@ So for d_model=64 (as in `feedforward.py`), one block has ~33K parameters. For d
 | LLaMA 70B | 8192 | 80 | 70B |
 
 Notice the pattern: as models get bigger, **both** d_model and layer count increase. The parameter count grows roughly as `layers * d_model²`, so doubling d_model quadruples the parameters per layer.
+
+---
+
+## Fine-Tuning GPT-2 on Nanomaterials Research
+
+This repo includes a complete pipeline for fine-tuning GPT-2 Small (117M parameters) on nanomaterials domain text using **LoRA** (Low-Rank Adaptation). LoRA freezes the original model weights and inserts small trainable matrices (~0.3M params) into the attention layers, keeping VRAM usage well under 4GB.
+
+### Setup
+
+```bash
+# Install dependencies (use the CUDA wheel for GPU support)
+pip install torch --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+```
+
+### Pipeline
+
+The pipeline has three steps: prepare data, fine-tune, generate.
+
+#### 1. Prepare the dataset
+
+```bash
+# Use the built-in sample nanomaterials texts (15 passages):
+python prepare_dataset.py --output ./tokenized_data
+
+# Or use your own .txt files (one abstract/passage per file):
+python prepare_dataset.py --source ./data/my_papers/ --output ./tokenized_data
+
+# Or use a .jsonl file (one {"text": "..."} per line):
+python prepare_dataset.py --source my_corpus.jsonl --output ./tokenized_data
+```
+
+#### 2. Fine-tune with LoRA
+
+```bash
+python finetune.py --dataset ./tokenized_data --epochs 5
+```
+
+Key flags for your Dell 5760 (RTX A2000 / 4GB VRAM):
+
+| Flag | Default | Notes |
+|------|---------|-------|
+| `--batch-size` | 2 | Safe for 4GB VRAM; reduce to 1 if OOM |
+| `--gradient-accumulation` | 8 | Effective batch = batch_size * this = 16 |
+| `--lora-rank` | 16 | Higher = more capacity, more VRAM |
+| `--learning-rate` | 2e-4 | Standard for LoRA fine-tuning |
+| `--epochs` | 5 | Increase for small datasets |
+
+#### 3. Generate text
+
+```bash
+# Generate a continuation:
+python generate.py --prompt "Graphene oxide nanosheets were synthesized"
+
+# Compare base GPT-2 vs fine-tuned output:
+python generate.py --prompt "The nanoparticles exhibited" --compare
+
+# Adjust generation parameters:
+python generate.py \
+    --prompt "Silver nanoparticles" \
+    --max-tokens 200 \
+    --temperature 0.8 \
+    --top-p 0.9
+```
+
+### Using your own data
+
+For best results, prepare a corpus of nanomaterials text. Good sources include:
+
+- **Paper abstracts** from journals like *ACS Nano*, *Nano Letters*, *Advanced Materials*
+- **Thesis sections** or literature review paragraphs
+- **Technical reports** on synthesis methods and characterization results
+
+Place `.txt` files (one document per file) in a directory and point `prepare_dataset.py` at it. More data yields better domain adaptation — aim for at least a few hundred passages.
+
+### Project structure
+
+```
+gen-ai-sandbox/
+├── feedforward.py          # NumPy feedforward block (educational)
+├── test_feedforward.py     # Gradient-checked tests for feedforward block
+├── prepare_dataset.py      # Tokenize nanomaterials text for training
+├── finetune.py             # LoRA fine-tuning script (GPT-2 + PEFT)
+├── generate.py             # Text generation / inference
+└── requirements.txt        # Python dependencies
+```
