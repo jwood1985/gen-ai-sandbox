@@ -1,0 +1,10 @@
+numpy>=1.24
+
+# PyTorch — install with CUDA support for GPU training:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch>=2.0
+
+# Hugging Face ecosystem
+transformers>=4.36
+datasets>=2.16
+peft>=0.7
