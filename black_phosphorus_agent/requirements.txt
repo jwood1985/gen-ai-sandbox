@@ -1,0 +1,14 @@
+# Core
+anthropic>=0.40.0
+
+# Atomic simulation environment (structure build, LBFGS optimiser, neighbour lists)
+ase>=3.23.0
+
+# Numerical
+numpy>=1.24
+
+# DFT backend — install whichever is available
+# Production: GPAW (PBE plane-wave DFT)
+#   pip install gpaw && gpaw install-data /path/to/paw-datasets
+# Fast smoke-test: ASE's built-in EMT calculator (no extra install needed)
+gpaw>=24.1.0   ; python_version >= "3.9"   # optional but recommended
