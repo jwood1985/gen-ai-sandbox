@@ -1,0 +1,43 @@
+{
+  "site": "interstitial",
+  "n_position": [
+    4.9704,
+    8.7526,
+    7.8591
+  ],
+  "pn_distances": [
+    {
+      "atom_idx": 38,
+      "symbol": "P",
+      "distance_A": 3.874541081240289
+    },
+    {
+      "atom_idx": 22,
+      "symbol": "P",
+      "distance_A": 3.8745410812402894
+    },
+    {
+      "atom_idx": 40,
+      "symbol": "P",
+      "distance_A": 3.87454108124029
+    },
+    {
+      "atom_idx": 24,
+      "symbol": "P",
+      "distance_A": 3.8745410812402903
+    },
+    {
+      "atom_idx": 27,
+      "symbol": "P",
+      "distance_A": 3.890015655886576
+    },
+    {
+      "atom_idx": 21,
+      "symbol": "P",
+      "distance_A": 3.890015655886577
+    }
+  ],
+  "covalent_bonds": [],
+  "is_covalent": false,
+  "bond_threshold": 2.136
+}

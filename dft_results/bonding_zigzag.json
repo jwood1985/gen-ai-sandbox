@@ -1,0 +1,63 @@
+{
+  "site": "zigzag",
+  "n_position": [
+    5.018384712927888e-08,
+    4.912228878554716,
+    6.462596286520725
+  ],
+  "pn_distances": [
+    {
+      "atom_idx": 18,
+      "symbol": "P",
+      "distance_A": 3.3735265179085765
+    },
+    {
+      "atom_idx": 34,
+      "symbol": "P",
+      "distance_A": 3.373526544935788
+    },
+    {
+      "atom_idx": 5,
+      "symbol": "P",
+      "distance_A": 3.4991766998979306
+    },
+    {
+      "atom_idx": 37,
+      "symbol": "P",
+      "distance_A": 3.4991767541844654
+    },
+    {
+      "atom_idx": 7,
+      "symbol": "P",
+      "distance_A": 3.56028885087116
+    },
+    {
+      "atom_idx": 39,
+      "symbol": "P",
+      "distance_A": 3.5602888655337925
+    },
+    {
+      "atom_idx": 1,
+      "symbol": "P",
+      "distance_A": 3.639586301906298
+    },
+    {
+      "atom_idx": 33,
+      "symbol": "P",
+      "distance_A": 3.6395863634451415
+    },
+    {
+      "atom_idx": 2,
+      "symbol": "P",
+      "distance_A": 3.741662177656706
+    },
+    {
+      "atom_idx": 6,
+      "symbol": "P",
+      "distance_A": 3.9044275049896013
+    }
+  ],
+  "covalent_bonds": [],
+  "is_covalent": false,
+  "bond_threshold": 2.136
+}

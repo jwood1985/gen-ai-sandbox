@@ -1,0 +1,14 @@
+{
+  "label": "doped_bridge",
+  "n_atoms": 49,
+  "species": [
+    "N",
+    "P"
+  ],
+  "energy_eV": -1.5732458410340777,
+  "max_force_eV_per_A": 0.04748273363256491,
+  "converged": true,
+  "steps": 154,
+  "traj": "dft_results/doped_bridge.traj",
+  "cif": "dft_results/doped_bridge_relaxed.cif"
+}

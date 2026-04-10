@@ -1,0 +1,14 @@
+{
+  "label": "doped_interstitial",
+  "n_atoms": 49,
+  "species": [
+    "N",
+    "P"
+  ],
+  "energy_eV": 54.07754903534963,
+  "max_force_eV_per_A": 0.00860162862018438,
+  "converged": true,
+  "steps": 0,
+  "traj": "dft_results/doped_interstitial.traj",
+  "cif": "dft_results/doped_interstitial_relaxed.cif"
+}

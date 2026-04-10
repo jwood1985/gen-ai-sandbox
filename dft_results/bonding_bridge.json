@@ -1,0 +1,53 @@
+{
+  "site": "bridge",
+  "n_position": [
+    4.766624845198516,
+    12.093987688144697,
+    3.980426956898226
+  ],
+  "pn_distances": [
+    {
+      "atom_idx": 44,
+      "symbol": "P",
+      "distance_A": 3.5635143373485523
+    },
+    {
+      "atom_idx": 27,
+      "symbol": "P",
+      "distance_A": 3.590000401782988
+    },
+    {
+      "atom_idx": 31,
+      "symbol": "P",
+      "distance_A": 3.692815529297789
+    },
+    {
+      "atom_idx": 46,
+      "symbol": "P",
+      "distance_A": 3.765866153919868
+    },
+    {
+      "atom_idx": 38,
+      "symbol": "P",
+      "distance_A": 3.8631023765812698
+    },
+    {
+      "atom_idx": 9,
+      "symbol": "P",
+      "distance_A": 3.865188972707223
+    },
+    {
+      "atom_idx": 43,
+      "symbol": "P",
+      "distance_A": 3.8746365530604696
+    },
+    {
+      "atom_idx": 11,
+      "symbol": "P",
+      "distance_A": 3.9843718927437606
+    }
+  ],
+  "covalent_bonds": [],
+  "is_covalent": false,
+  "bond_threshold": 2.136
+}

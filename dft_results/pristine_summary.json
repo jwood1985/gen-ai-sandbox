@@ -1,0 +1,13 @@
+{
+  "label": "pristine",
+  "n_atoms": 48,
+  "species": [
+    "P"
+  ],
+  "energy_eV": 54.162954440935266,
+  "max_force_eV_per_A": 0.006907182285616059,
+  "converged": true,
+  "steps": 0,
+  "traj": "dft_results/pristine.traj",
+  "cif": "dft_results/pristine_relaxed.cif"
+}

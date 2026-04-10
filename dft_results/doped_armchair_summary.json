@@ -1,0 +1,14 @@
+{
+  "label": "doped_armchair",
+  "n_atoms": 49,
+  "species": [
+    "N",
+    "P"
+  ],
+  "energy_eV": -1.6370404773285947,
+  "max_force_eV_per_A": 0.06800707437217318,
+  "converged": false,
+  "steps": 200,
+  "traj": "dft_results/doped_armchair.traj",
+  "cif": "dft_results/doped_armchair_relaxed.cif"
+}

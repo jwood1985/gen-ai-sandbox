@@ -1,0 +1,14 @@
+{
+  "label": "doped_zigzag",
+  "n_atoms": 49,
+  "species": [
+    "N",
+    "P"
+  ],
+  "energy_eV": -1.1536909005093607,
+  "max_force_eV_per_A": 0.049311748658697835,
+  "converged": true,
+  "steps": 148,
+  "traj": "dft_results/doped_zigzag.traj",
+  "cif": "dft_results/doped_zigzag_relaxed.cif"
+}

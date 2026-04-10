@@ -1,0 +1,68 @@
+{
+  "site": "armchair",
+  "n_position": [
+    1.7667947810138074,
+    5.500136862463848,
+    2.6225655668576233
+  ],
+  "pn_distances": [
+    {
+      "atom_idx": 20,
+      "symbol": "P",
+      "distance_A": 3.517340342935484
+    },
+    {
+      "atom_idx": 5,
+      "symbol": "P",
+      "distance_A": 3.5437537831013293
+    },
+    {
+      "atom_idx": 7,
+      "symbol": "P",
+      "distance_A": 3.5655921568105295
+    },
+    {
+      "atom_idx": 3,
+      "symbol": "P",
+      "distance_A": 3.6195304722793575
+    },
+    {
+      "atom_idx": 6,
+      "symbol": "P",
+      "distance_A": 3.7299039196149053
+    },
+    {
+      "atom_idx": 37,
+      "symbol": "P",
+      "distance_A": 3.7588155058154933
+    },
+    {
+      "atom_idx": 33,
+      "symbol": "P",
+      "distance_A": 3.7686336815027834
+    },
+    {
+      "atom_idx": 39,
+      "symbol": "P",
+      "distance_A": 3.866571101043763
+    },
+    {
+      "atom_idx": 16,
+      "symbol": "P",
+      "distance_A": 3.872060608854939
+    },
+    {
+      "atom_idx": 23,
+      "symbol": "P",
+      "distance_A": 3.893157112662518
+    },
+    {
+      "atom_idx": 22,
+      "symbol": "P",
+      "distance_A": 3.945835153453567
+    }
+  ],
+  "covalent_bonds": [],
+  "is_covalent": false,
+  "bond_threshold": 2.136
+}
