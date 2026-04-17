@@ -1,0 +1,23 @@
+{
+  "name": "Gen AI Sandbox",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+  "postStartCommand": "bash .devcontainer/scripts/keepalive.sh",
+
+  "remoteEnv": {
+    "NTFY_SERVER": "${localEnv:NTFY_SERVER}",
+    "NTFY_TOPIC":  "${localEnv:NTFY_TOPIC}",
+    "NTFY_TOKEN":  "${localEnv:NTFY_TOKEN}",
+    "NTFY_KEYWORD":"${localEnv:NTFY_KEYWORD}",
+    "KEEPALIVE_INTERVAL_SECS": "240"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  }
+}
