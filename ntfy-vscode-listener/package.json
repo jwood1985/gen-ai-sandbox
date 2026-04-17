@@ -1,0 +1,74 @@
+{
+  "name": "ntfy-vscode-listener",
+  "displayName": "Ntfy VS Code Listener",
+  "description": "Bidirectional phone-to-VS Code bridge via ntfy.sh — forward terminal prompts to your phone, respond from anywhere.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "ntfy-listener.start",      "title": "Ntfy: Start Listener" },
+      { "command": "ntfy-listener.stop",       "title": "Ntfy: Stop Listener" },
+      { "command": "ntfy-listener.configure",  "title": "Ntfy: Configure" },
+      { "command": "ntfy-listener.status",     "title": "Ntfy: Show Status" },
+      { "command": "ntfy-listener.sendToPhone","title": "Ntfy: Send Message to Phone" }
+    ],
+    "configuration": {
+      "title": "Ntfy Listener",
+      "properties": {
+        "ntfyListener.serverUrl": {
+          "type": "string",
+          "default": "https://ntfy.sh",
+          "description": "ntfy server base URL. Point to a self-hosted instance for maximum security."
+        },
+        "ntfyListener.topic": {
+          "type": "string",
+          "default": "",
+          "description": "ntfy topic name. Use a long random string (e.g. UUID) — this is your first line of defence."
+        },
+        "ntfyListener.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically start listener when VS Code opens."
+        },
+        "ntfyListener.requirePassword": {
+          "type": "boolean",
+          "default": true,
+          "description": "When true, messages must start with 'keyword: ' to trigger terminal injection. When false, all messages are read-only notifications."
+        },
+        "ntfyListener.terminalInjectionEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Allow injecting text into the active terminal."
+        },
+        "ntfyListener.maxMessagesPerMinute": {
+          "type": "number",
+          "default": 10,
+          "description": "Rate limit: max authenticated commands per minute."
+        },
+        "ntfyListener.notifyOnClaudeStop": {
+          "type": "boolean",
+          "default": true,
+          "description": "When Claude Code stops and awaits input, automatically push a notification to your phone."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
