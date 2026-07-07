@@ -1,0 +1,74 @@
+# Job sweep definitions for spin-cycle
+# Each combination generates one or more jobs in the queue.
+
+# --- Convergence study (Phase 1) ---
+convergence:
+  isotope_config: natural_abundance
+  magnetic_field_mT: 50.0
+  pulse_sequence: hahn
+  cce_orders: [2, 3]
+  bath_radii_A: [10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0]
+  # Convergence criterion: T2 changes <5% between successive radii
+  convergence_threshold: 0.05
+  n_time_points: 201
+  time_range_us: [0.0, 20.0]  # [start, end] in microseconds
+  seeds: 10  # fewer seeds for convergence — just need the trend
+
+# --- Validation gate (Phase 1) ---
+validation:
+  isotope_config: natural_abundance
+  magnetic_field_mT: 50.0
+  pulse_sequence: hahn
+  cce_order: 2  # or whatever converges from above
+  bath_radius_A: 30.0  # placeholder — set from convergence results
+  n_time_points: 201
+  time_range_us: [0.0, 20.0]
+  seeds: 50
+  # Literature target: Hahn T2 ~ 50–100 ns for natural hBN at room temp
+  # (DD-extended T2 reaches ~μs; raw Hahn is much shorter due to dense bath)
+  # Ref: Gottscholl et al., Nat. Commun. 12, 5676 (2021)
+  #      Haykal et al., Nat. Commun. 13, 4347 (2022)
+  #      Gao & Galli, arXiv:2112.10176 (CCE theory)
+  literature_T2_us: 0.075  # ~75 ns
+  validation_factor: 2.0   # pass if within 2x
+
+# --- Production sweep (Phase 2) ---
+production:
+  isotope_configs:
+    - natural_abundance
+    - h10B14N
+    - h10B15N
+    - h11B14N
+    - h11B15N
+
+  purity_levels: [0.90, 0.95, 0.99, 0.999]
+
+  magnetic_fields_mT: [0.0, 50.0, 300.0]
+
+  pulse_sequences:
+    - name: hahn
+      n_pulses: 1
+    - name: cpmg
+      n_pulses: 4
+    - name: cpmg
+      n_pulses: 16
+    - name: xy8
+      n_pulses: 4
+
+  cce_order: 2  # set from convergence
+  bath_radius_A: 30.0  # set from convergence
+
+  n_time_points: 201
+  time_range_us: [0.0, 50.0]  # longer window for DD sequences
+  seeds: 50
+
+# --- Smoke test (Phase 0) ---
+smoke_test:
+  isotope_config: natural_abundance
+  magnetic_field_mT: 50.0
+  pulse_sequence: hahn
+  cce_order: 2
+  bath_radius_A: 15.0  # small bath for speed
+  n_time_points: 101
+  time_range_us: [0.0, 10.0]
+  seeds: 1

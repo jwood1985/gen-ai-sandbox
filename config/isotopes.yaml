@@ -1,0 +1,57 @@
+# Isotope configurations for V_B⁻ in hBN spin bath simulations
+# Each config specifies boron and nitrogen isotope purities.
+#
+# Natural abundances:
+#   ¹⁰B: 19.9%, ¹¹B: 80.1%  (IUPAC 2016)
+#   ¹⁴N: 99.6%, ¹⁵N: 0.4%   (IUPAC 2016)
+#
+# Nuclear spins:
+#   ¹⁰B: I=3,   γ = 2.8747 MHz/T,   Q = 8.459 fm²
+#   ¹¹B: I=3/2,  γ = 13.663 MHz/T,   Q = 4.059 fm²
+#   ¹⁴N: I=1,    γ = 3.0777 MHz/T,   Q = 2.044 fm²
+#   ¹⁵N: I=1/2,  γ = -4.3173 MHz/T,  Q = 0 (spin-1/2)
+
+# --- The four-corner isotope matrix + natural abundance baseline ---
+
+configurations:
+  natural_abundance:
+    label: "Natural hBN"
+    B10_fraction: 0.199
+    B11_fraction: 0.801
+    N14_fraction: 0.996
+    N15_fraction: 0.004
+
+  h10B14N:
+    label: "h¹⁰B¹⁴N"
+    B10_fraction: 1.0
+    B11_fraction: 0.0
+    N14_fraction: 1.0
+    N15_fraction: 0.0
+
+  h10B15N:
+    label: "h¹⁰B¹⁵N"
+    B10_fraction: 1.0
+    B11_fraction: 0.0
+    N14_fraction: 0.0
+    N15_fraction: 1.0
+
+  h11B14N:
+    label: "h¹¹B¹⁴N"
+    B10_fraction: 0.0
+    B11_fraction: 1.0
+    N14_fraction: 1.0
+    N15_fraction: 0.0
+
+  h11B15N:
+    label: "h¹¹B¹⁵N"
+    B10_fraction: 0.0
+    B11_fraction: 1.0
+    N14_fraction: 0.0
+    N15_fraction: 1.0
+
+# --- Purity sweep levels ---
+# Commercial enrichment grades; maps to precursor procurement costs
+purity_levels: [0.90, 0.95, 0.99, 0.999]
+
+# When sweeping purity for a target isotope, the remainder is the
+# other isotope of that element. E.g., 95% ¹⁵N means 5% ¹⁴N.
