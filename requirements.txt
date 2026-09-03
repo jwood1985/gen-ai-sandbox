@@ -8,3 +8,10 @@ torch>=2.0
 transformers>=4.36
 datasets>=2.16
 peft>=0.7
+
+# spin-cycle: CCE coherence simulations
+pycce>=1.1
+ase>=3.22
+scipy>=1.10
+pyyaml>=6.0
+matplotlib>=3.7

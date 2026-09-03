@@ -1,3 +1,11 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Simulation outputs (large, regenerable)
+results/raw/
+results/fits/
+results/figures/
+queue/*.json
+tokenized_data/
+nanomaterials-gpt2-lora/
